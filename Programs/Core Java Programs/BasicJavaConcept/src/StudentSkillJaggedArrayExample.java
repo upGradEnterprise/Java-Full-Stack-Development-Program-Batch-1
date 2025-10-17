@@ -13,7 +13,7 @@ public class StudentSkillJaggedArrayExample {
             names[i]=sc.next();
             System.out.println("how many skill do you know?");
             int skill = sc.nextInt();
-            skillSet[i]=new String[skill];  // skill value dynamic 
+            skillSet[i]=new String[skill];  // skill value dynamic
             for(int j=0;j<skill;j++){
                 skillSet[i][j]=sc.next();
             }
