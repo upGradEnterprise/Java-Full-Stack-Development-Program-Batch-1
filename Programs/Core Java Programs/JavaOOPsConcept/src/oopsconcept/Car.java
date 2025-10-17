@@ -26,6 +26,14 @@ public class Car {
         this.color=color;
     }
 
+    // parameter constructor taking Same class object as parameter
+    Car(Car carRefCopy) {
+        System.out.println("Car class object with copy constructor");
+        this.wheel=carRefCopy.wheel;
+        this.price=carRefCopy.price+200000;
+        this.color=carRefCopy.color;
+    }
+
     void init() {
         System.out.println("Car instance variable initialization");
         wheel=4;

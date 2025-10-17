@@ -37,8 +37,15 @@ public class CarTest {
         ertiga.printDetails("Ertiga");
 
         System.out.println("----------------");
-        Car kia = new Car(4,2200000,"Black");
+        Car kia = new Car(4,1700000,"Black");
         kia.printDetails("Kia");
 
+        System.out.println("----------------");
+        Car kiaCarens = new Car(kia);
+        kiaCarens.printDetails("Kia Caren");
+        kiaCarens.price= kiaCarens.price-25000;
+        System.out.println("After reduce the GST");
+        kiaCarens.printDetails("Kia Caren");
+        kia.printDetails("Kia");
     }
 }
