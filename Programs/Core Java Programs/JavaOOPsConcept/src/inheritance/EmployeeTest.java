@@ -10,9 +10,9 @@ public class EmployeeTest {
 
         System.out.println("Manager details");
         Manager mgr1 = new Manager();
-        mgr1.readEmp();
+        //mgr1.readEmp();
         mgr1.readMgr();
-        mgr1.disEmp();
+        //mgr1.disEmp();
         mgr1.disMgr();
     }
 }

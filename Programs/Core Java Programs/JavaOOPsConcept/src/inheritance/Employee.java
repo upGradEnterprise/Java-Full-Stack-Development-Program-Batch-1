@@ -7,6 +7,7 @@ public class Employee {
     private String name;
     private float salary;
     Scanner sc = new Scanner(System.in);
+    Address add = new Address();
     public void readEmp() {
         System.out.println("Enter the id");
         id = sc.nextInt();
