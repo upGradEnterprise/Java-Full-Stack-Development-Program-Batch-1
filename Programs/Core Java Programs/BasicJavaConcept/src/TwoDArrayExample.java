@@ -12,6 +12,7 @@ public class TwoDArrayExample {
         for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
                 num[i][j]=sc.nextInt();
+
             }
         }
         System.out.println("Array element in matrix format");
