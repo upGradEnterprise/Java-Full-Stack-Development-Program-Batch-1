@@ -1,5 +1,9 @@
 package abstractkeyword;
 abstract class Bike {
+    int wheel;
+    Bike() {
+        wheel=2;
+    }
     abstract void speed();
     void mailage() {
         System.out.println("Generic mailage is 55km/lt");
@@ -12,7 +16,7 @@ class Pulsar extends Bike {
     }
 }
 abstract  class Honda extends Bike {
-    
+
 }
 class Activa extends  Honda{
     @Override
