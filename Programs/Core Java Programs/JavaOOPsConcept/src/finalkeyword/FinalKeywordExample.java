@@ -10,6 +10,7 @@ final class A {
 ////        System.out.println("B class override display1 method");
 ////    }
 //}
+
 public class FinalKeywordExample {
     public static void main(String[] args) {
         final int A=100;
