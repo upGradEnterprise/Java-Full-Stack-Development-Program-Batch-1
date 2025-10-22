@@ -7,7 +7,7 @@ public class AutoBoxingAndAutoUnboxing {
         Integer c = 10;     // converting primitive to object. auto boxing :converting
                 // primitive to object
 
-        int d = b;  // auto-unboxing : converting object to primitive 
+        int d = b;  // auto-unboxing : converting object to primitive
         int e = b.intValue();   // old version
     }
 }
