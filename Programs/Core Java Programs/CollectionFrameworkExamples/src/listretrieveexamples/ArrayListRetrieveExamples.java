@@ -26,6 +26,8 @@ public class ArrayListRetrieveExamples {
         while (li.hasPrevious()){
             System.out.println(li.previous());
         }
+
+
         System.out.println("Vector with enumeration");
         Vector vv = new Vector();
         vv.add(10);
