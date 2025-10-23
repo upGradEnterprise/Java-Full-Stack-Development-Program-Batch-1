@@ -1,6 +1,7 @@
 package utilities;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class ArraysDemo {
     public static void main(String[] args) {
@@ -24,5 +25,11 @@ public class ArraysDemo {
         }else {
             System.out.println("Element present");
         }
+        // creating immutable list of data.
+        List<Integer> nums= Arrays.asList(10,20,30,40,50);
+        System.out.println(nums);
+        //nums.add(60);
+        System.out.println(nums);
+        
     }
 }
