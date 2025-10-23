@@ -30,6 +30,6 @@ public class ArraysDemo {
         System.out.println(nums);
         //nums.add(60);
         System.out.println(nums);
-        
+
     }
 }
