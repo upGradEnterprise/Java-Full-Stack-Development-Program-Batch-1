@@ -31,6 +31,11 @@ class Operation {
     public void receiveSetOfNumberType(Set<? extends Number> ss){
         System.out.println("wild car ? extends Number");
     }
+    // this method receive set of Integer as well as super class of Integer.
+    // Integer, Number, Object
+    public void receiveSetOfIntegerAndSuper(Set<? super Integer> ss){
+        System.out.println("wild car ? super Integer");
+    }
 }
 public class WildCardExamples {
     public static void main(String[] args) {
@@ -60,11 +65,21 @@ public class WildCardExamples {
         Set<Float> ss4 = new HashSet<>();
         ss4.add(10.20f); ss4.add(20.20f); ss4.add(30.30f);
 
+        Set<Number> ss5 = new HashSet<>();
+        ss5.add(10); ss5.add(20.20); ss5.add(30.30f);
 
 
-        op.receiveSetOfNumberType(ss1);
-        op.receiveSetOfNumberType(ss4);
+        op.receiveSetOfNumberType(ss1); // integer
+        op.receiveSetOfNumberType(ss4); // float
+        op.receiveSetOfNumberType(ss5); // Number
         //op.receiveSetOfNumberType(ss2); String type
         //op.receiveSetOfNumberType(ss3);
+
+
+
+        // syper of Integer is Number and Object
+        op.receiveSetOfIntegerAndSuper(ss1);    // Integer
+        op.receiveSetOfIntegerAndSuper(ss3);    // object
+        op.receiveSetOfIntegerAndSuper(ss5);    // number
     }
 }
