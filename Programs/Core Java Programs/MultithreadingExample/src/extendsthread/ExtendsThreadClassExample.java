@@ -23,6 +23,7 @@ public class ExtendsThreadClassExample {
         // t2.hi();
         obj1.start();           // ready to run ie Runnable state
         obj2.start();           // they are independent stack.
-
+        //obj1.run();
+        //obj2.run();
     }
 }
