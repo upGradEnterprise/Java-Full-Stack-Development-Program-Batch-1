@@ -1,5 +1,6 @@
 package genericsexamples;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -7,6 +8,10 @@ import java.util.Set;
 class Operation {
     // ? type can be anything.
     public void receiveGenericSetValue(Set<?> ss){
+        System.out.println("Wild card ?");
+        System.out.println(ss);
+    }
+    public void receiveAnyCollectionType(Collection<?> ss){
         System.out.println("Wild card ?");
         System.out.println(ss);
     }
@@ -21,6 +26,10 @@ class Operation {
     public void receiveSetOfObject(Set<Object> ss){
         System.out.println("Object type");
         System.out.println(ss);
+    }
+    // this method receive set of any type but subclass or extends of Number type.
+    public void receiveSetOfNumberType(Set<? extends Number> ss){
+        System.out.println("wild car ? extends Number");
     }
 }
 public class WildCardExamples {
@@ -47,5 +56,15 @@ public class WildCardExamples {
         op.receiveSetOfObject(ss3);
         //op.receiveSetOfInteger(ss3);
         //op.receiveSetOfString(ss3);
+
+        Set<Float> ss4 = new HashSet<>();
+        ss4.add(10.20f); ss4.add(20.20f); ss4.add(30.30f);
+
+
+
+        op.receiveSetOfNumberType(ss1);
+        op.receiveSetOfNumberType(ss4);
+        //op.receiveSetOfNumberType(ss2); String type
+        //op.receiveSetOfNumberType(ss3);
     }
 }
