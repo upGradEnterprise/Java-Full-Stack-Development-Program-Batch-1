@@ -19,8 +19,10 @@ public class ExtendsThreadClassExample {
     public static void main(String[] args) {
         A obj1 = new A();       // obj1 is thread class reference.
         B obj2 = new B();
+        // t1.hello();
+        // t2.hi();
         obj1.start();           // ready to run ie Runnable state
-        obj2.start();
+        obj2.start();           // they are independent stack.
 
     }
 }
