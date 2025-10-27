@@ -1,7 +1,9 @@
 package normalsetexample;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 class Task implements  Runnable {
     private Set<String> set;
@@ -20,8 +22,9 @@ class Task implements  Runnable {
 }
 public class SetDemoExamples {
     public static void main(String[] args) throws  Exception{
-    Set<String> ss = new HashSet<>();
-
+    //Set<String> ss = new HashSet<>();
+        //Set<String> ss = new LinkedHashSet<>();
+        Set<String> ss = new TreeSet<>();
     Thread t1 = new Thread(new Task(ss,"A"));
     Thread t2 = new Thread(new Task(ss,"B"));
     Thread t3 = new Thread(new Task(ss,"C"));
@@ -33,5 +36,6 @@ public class SetDemoExamples {
 
     t1.join();t2.join();t3.join();t4.join();
     System.out.println("Size is "+ss.size());
+    System.out.println(ss);
     }
 }
