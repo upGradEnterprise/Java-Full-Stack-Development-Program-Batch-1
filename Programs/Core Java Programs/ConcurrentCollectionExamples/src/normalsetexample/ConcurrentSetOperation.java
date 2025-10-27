@@ -1,52 +1,52 @@
 package normalsetexample;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
 
 class AddData implements  Runnable {
     Set<Integer> ss;
-    int value;
-    AddData(Set<Integer> ss, int value){
+
+    AddData(Set<Integer> ss){
         this.ss = ss;
-        this.value = value;
     }
     @Override
     public void run() {
-            System.out.println("Added Status "+ss.add(value));
-            //System.out.println("Added data "+value);
-            //System.out.println(ss);
-            //System.out.println("After Added Size is "+ss.size());
-            //System.out.println(ss);
+        for(int i=0;i<100;i++){
+            this.ss.add(i);
+            System.out.println("Element added "+i);
+        }
+        System.out.println("Added element is "+this.ss.size());
+        System.out.println(ss);
     }
 }
-class RemoveData implements  Runnable {
+class RetrieveData implements  Runnable {
     Set<Integer> ss;
-    int value;
-    RemoveData(Set<Integer> ss, int value){
+    RetrieveData(Set<Integer> ss){
         this.ss = ss;
-        this.value = value;
+
     }
     @Override
     public void run() {
-        System.out.println("Removed Status "+ss.remove(value));
-        //System.out.println("Removed data "+value);
-        //System.out.println(ss);
-        //System.out.println("After Removed Size is "+ss.size());
-        //System.out.println(ss);
+        Iterator<Integer> li = this.ss.iterator();
+        while(li.hasNext()){
+            int n = li.next();
+            System.out.println("Value is "+n);
+        }
     }
 }
 public class ConcurrentSetOperation {
     public static void main(String[] args) {
-    //Set<Integer> ss  = new HashSet<Integer>();
+    //Set<Integer> ss  = new HashSet<>();
     Set<Integer> ss = new ConcurrentSkipListSet<>();
-    for(int i=0;i<5;i++) {
-        AddData ad = new AddData(ss,i);
-        RemoveData rd = new RemoveData(ss,i);
+
+        AddData ad = new AddData(ss);
+        RetrieveData rd = new RetrieveData(ss);
+
         Thread t1 = new Thread(ad);
         Thread t2 = new Thread(rd);
         t1.start();
         t2.start();
-    }
     }
 }

@@ -17,14 +17,18 @@ class Task implements  Runnable {
     public void run() {
             set.add(value);
             String name = Thread.currentThread().getName();
+            try{
+                Thread.sleep(2000);
+            }catch (Exception e){}
             System.out.println(name + " added the value as " + value);
+            set.remove(value);
     }
 }
 public class SetDemoExamples {
     public static void main(String[] args) throws  Exception{
-    //Set<String> ss = new HashSet<>();
+    Set<String> ss = new HashSet<>();
         //Set<String> ss = new LinkedHashSet<>();
-        Set<String> ss = new TreeSet<>();
+        //Set<String> ss = new TreeSet<>();
     Thread t1 = new Thread(new Task(ss,"A"));
     Thread t2 = new Thread(new Task(ss,"B"));
     Thread t3 = new Thread(new Task(ss,"C"));
