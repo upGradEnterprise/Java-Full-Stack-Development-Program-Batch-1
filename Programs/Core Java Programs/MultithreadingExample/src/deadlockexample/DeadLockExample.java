@@ -15,21 +15,52 @@ class Account {
     public void setName(String name) {
         this.name = name;
     }
-    public synchronized  void transfer(Account toAccount){
+    // this method occurd dead lock
+//    public synchronized  void transfer(Account toAccount){
+//        String tname = Thread.currentThread().getName();
+//        System.out.println(tname+" locked "+this.name);
+//
+//        try{
+//            Thread.sleep(1000);
+//        }catch (Exception e){}
+//
+//        System.out.println(tname+" trying to lock "+toAccount.getName());
+//
+//        synchronized (toAccount){
+//            System.out.println(tname+" locked "+this.getName());
+//            System.out.println(tname+" transfering the money....");
+//        }
+//
+//    }
+
+    public void transfer(Account toAccount){
+        Account firstLock,secondLock;
+
+        // lock using with smallest account name with their asci code
+        if(this.name.compareTo(toAccount.name)<0){
+            firstLock=this;
+            secondLock = toAccount;
+        }else {
+            firstLock=toAccount;
+            secondLock = this;
+        }
         String tname = Thread.currentThread().getName();
         System.out.println(tname+" locked "+this.name);
 
-        try{
-            Thread.sleep(1000);
-        }catch (Exception e){}
+        synchronized (secondLock) {
 
-        System.out.println(tname+" trying to lock "+toAccount.getName());
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+            }
 
-        synchronized (toAccount){
-            System.out.println(tname+" locked "+this.getName());
-            System.out.println(tname+" transfering the money....");
+            System.out.println(tname + " trying to lock " + toAccount.getName());
+
+            synchronized (firstLock) {
+                System.out.println(tname + " locked " + this.getName());
+                System.out.println(tname + " transfering the money....");
+            }
         }
-
     }
 }
 class TransferThread1 implements  Runnable {
@@ -59,7 +90,7 @@ class TransferThread2 implements  Runnable {
 
 public class DeadLockExample {
     public static void main(String[] args) {
-    Account acc1 = new Account("Account A ");
+    Account acc1 = new Account("Account C ");
     Account acc2 = new Account("Account B ");
     TransferThread1 tt1 = new TransferThread1(acc1,acc2);
     TransferThread2 tt2 = new TransferThread2(acc1,acc2);
