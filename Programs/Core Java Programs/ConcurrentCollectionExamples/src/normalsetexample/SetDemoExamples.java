@@ -1,0 +1,37 @@
+package normalsetexample;
+
+import java.util.HashSet;
+import java.util.Set;
+
+class Task implements  Runnable {
+    private Set<String> set;
+    private String value;
+
+    Task(Set<String> set, String value){
+        this.set = set;
+        this.value=value;
+    }
+    @Override
+    public void run() {
+        set.add(value);
+        String name  = Thread.currentThread().getName();
+        System.out.println(name+" added the value as "+value);
+    }
+}
+public class SetDemoExamples {
+    public static void main(String[] args) throws  Exception{
+    Set<String> ss = new HashSet<>();
+
+    Thread t1 = new Thread(new Task(ss,"A"));
+    Thread t2 = new Thread(new Task(ss,"B"));
+    Thread t3 = new Thread(new Task(ss,"C"));
+    Thread t4 = new Thread(new Task(ss,"D"));
+    t1.start();
+    t2.start();
+    t3.start();
+    t4.start();
+
+    t1.join();t2.join();t3.join();t4.join();
+    System.out.println("Size is "+ss.size());
+    }
+}
