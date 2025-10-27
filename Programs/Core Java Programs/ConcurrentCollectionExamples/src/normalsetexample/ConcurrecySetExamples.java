@@ -11,9 +11,9 @@ class Task1 implements  Runnable {
     }
     @Override
     public void run() {
-        set.add(value);
-        String name  = Thread.currentThread().getName();
-        System.out.println(name+" added the value as "+value);
+            set.add(value);
+            String name = Thread.currentThread().getName();
+            System.out.println(name + " added the value as " + value);
     }
 }
 public class ConcurrecySetExamples {
