@@ -21,7 +21,7 @@ public class ExecutorServiceExamples {
         // 3 thred pool divided the task 10
         //ExecutorService es = Executors.newFixedThreadPool(3);
 // create the thread pool the create new threads as needed
-        // as well as reusable idle thread 
+        // as well as reusable idle thread
        ExecutorService es = Executors.newCachedThreadPool();
         for(int i=0;i<10;i++) {
             Future<Thread> ff = es.submit(cc1);
