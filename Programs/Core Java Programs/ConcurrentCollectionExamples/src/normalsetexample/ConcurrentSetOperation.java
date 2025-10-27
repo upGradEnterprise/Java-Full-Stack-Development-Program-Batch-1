@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 class AddData implements  Runnable {
     Set<Integer> ss;
@@ -13,7 +14,7 @@ class AddData implements  Runnable {
     }
     @Override
     public void run() {
-        for(int i=0;i<100;i++){
+        for(int i=100;i>0;i--){
             this.ss.add(i);
             System.out.println("Element added "+i);
         }
@@ -39,8 +40,8 @@ class RetrieveData implements  Runnable {
 public class ConcurrentSetOperation {
     public static void main(String[] args) {
     //Set<Integer> ss  = new HashSet<>();
-    Set<Integer> ss = new ConcurrentSkipListSet<>();
-
+    //Set<Integer> ss = new ConcurrentSkipListSet<>();  // sorted
+        Set<Integer> ss = new CopyOnWriteArraySet<>();  // unorder
         AddData ad = new AddData(ss);
         RetrieveData rd = new RetrieveData(ss);
 
