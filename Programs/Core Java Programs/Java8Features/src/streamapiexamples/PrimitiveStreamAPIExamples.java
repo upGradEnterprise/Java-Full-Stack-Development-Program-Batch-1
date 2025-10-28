@@ -25,8 +25,9 @@ public class PrimitiveStreamAPIExamples {
             Arrays.stream(num).forEach(c1);
         System.out.println("");
         System.out.println("Retreive data using stream with lambda");
-        //IntStream intStream= Arrays.stream(num);    // converted to stream
+        IntStream intStream= Arrays.stream(num);    // converted to stream
         //intStream.forEach(v->System.out.print(v+" "));    // terminal operator
+        //intStream.forEach(v->System.out.print(v+" "));
             Arrays.stream(num).forEach(v->System.out.print(v+" "));
             System.out.println("display only even numbers");
         Arrays.stream(num).filter(v->v%2==0).forEach(v->System.out.print(v+" "));
