@@ -2,6 +2,8 @@ package streamapiexamples;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class EmployeeStreamOperation {
     public static void main(String[] args) {
@@ -29,11 +31,25 @@ public class EmployeeStreamOperation {
 //                forEach(v->System.out.println(v));
 
         // find sum of all employee salary using reduce terminal opeator
-        float sumSalary = listOfEmployees.stream().map(e->e.getSalary()).
-                reduce(0.0f,(sum,salary)->{
-                    System.out.println("sum "+sum+" Salary "+salary);
-                    return sum+salary;
-                });
-        System.out.println("All Employee total salary is "+sumSalary);
+//        float sumSalary = listOfEmployees.stream().map(e->e.getSalary()).
+//                reduce(0.0f,(sum,salary)->{
+//                    System.out.println("sum "+sum+" Salary "+salary);
+//                    return sum+salary;
+//                });
+//        System.out.println("All Employee total salary is "+sumSalary);
+
+        // Grouping by Employee using Department
+
+        Map<String,List<Employee>> groupByDepartment =
+            listOfEmployees.
+                    stream().collect(Collectors.groupingBy(e->e.getDepartment()));
+        System.out.println(groupByDepartment);
+        System.out.println("-----------------");
+        Map<String,Double> groupByDepartmentSumSalary =
+                listOfEmployees.stream().collect(Collectors.groupingBy(e->e.getDepartment(),
+                                Collectors.summingDouble(e->e.getSalary())));
+        System.out.println(groupByDepartmentSumSalary);
+
+        
     }
 }
