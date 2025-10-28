@@ -9,6 +9,7 @@ public class StringArrayWithStreamAPI {
     public static void main(String[] args) {
         String names[]={"Raj","Ravi","Ajay","Vikash","Vikash","Raj","Mahesh","Reeta","Meeta","Keeta"};
         System.out.println("display all names using stream api");
+
         Arrays.stream(names).forEach(v->System.out.print(v+" "));
         System.out.println("");
         System.out.println("filter names start with R");
