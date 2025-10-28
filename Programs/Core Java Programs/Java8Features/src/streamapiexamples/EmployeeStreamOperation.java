@@ -24,8 +24,16 @@ public class EmployeeStreamOperation {
         //listOfEmployees.stream().map(e->e.getSalary()+e.getSalary()*0.10f).forEach(v->System.out.println(v));
 
         // update the salary with 10% with employee all details
-        listOfEmployees.stream().map(e->
-                        new Employee(e.getId(),e.getName(),e.getSalary()+e.getSalary()*0.10f,e.getDepartment())).
-                forEach(v->System.out.println(v));
+//        listOfEmployees.stream().map(e->
+//                        new Employee(e.getId(),e.getName(),e.getSalary()+e.getSalary()*0.10f,e.getDepartment())).
+//                forEach(v->System.out.println(v));
+
+        // find sum of all employee salary using reduce terminal opeator
+        float sumSalary = listOfEmployees.stream().map(e->e.getSalary()).
+                reduce(0.0f,(sum,salary)->{
+                    System.out.println("sum "+sum+" Salary "+salary);
+                    return sum+salary;
+                });
+        System.out.println("All Employee total salary is "+sumSalary);
     }
 }
