@@ -4,13 +4,19 @@ sealed class Payment permits CreditCard,UpiPayment{
         System.out.println("Generic Payment Logic");
     }
 }
-sealed class CreditCard  extends  Payment {
+sealed class CreditCard extends Payment permits MasterCreditCard {
     @Override
     public void payment() {
         System.out.println("Credit Card Payment");
     }
 }
 final class MasterCreditCard extends CreditCard {
+    @Override
+    public void payment() {
+        System.out.println("Credit Card Payment through master card");
+    }
+}
+final class VisaCreditCard extends CreditCard {
     @Override
     public void payment() {
         System.out.println("Credit Card Payment through master card");
