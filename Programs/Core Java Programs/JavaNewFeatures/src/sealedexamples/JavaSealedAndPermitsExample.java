@@ -4,7 +4,7 @@ sealed class Payment permits CreditCard,UpiPayment{
         System.out.println("Generic Payment Logic");
     }
 }
-sealed class CreditCard extends Payment permits MasterCreditCard {
+sealed class CreditCard extends Payment permits MasterCreditCard,VisaCreditCard {
     @Override
     public void payment() {
         System.out.println("Credit Card Payment");
