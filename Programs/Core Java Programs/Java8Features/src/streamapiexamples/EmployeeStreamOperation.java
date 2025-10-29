@@ -50,6 +50,6 @@ public class EmployeeStreamOperation {
                                 Collectors.summingDouble(e->e.getSalary())));
         System.out.println(groupByDepartmentSumSalary);
 
-        
+
     }
 }
