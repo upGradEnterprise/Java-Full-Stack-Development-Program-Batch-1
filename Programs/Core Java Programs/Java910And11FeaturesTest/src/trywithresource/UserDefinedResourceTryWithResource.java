@@ -1,4 +1,10 @@
 package trywithresource;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 class MyResource implements AutoCloseable{
     String name;
     MyResource(String name){
@@ -44,5 +50,13 @@ public class UserDefinedResourceTryWithResource {
         }catch (Exception e){
 
         }
+            // in try () we need to pass the reference of that class
+        // which immplements AutoCloseable and not through checked exception
+        // try without catch or finally block 
+            try(
+                    Scanner sc = new Scanner(System.in);
+                    ){
+
+            }
     }
 }
