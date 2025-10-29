@@ -52,7 +52,7 @@ public class UserDefinedResourceTryWithResource {
         }
             // in try () we need to pass the reference of that class
         // which immplements AutoCloseable and not through checked exception
-        // try without catch or finally block 
+        // try without catch or finally block
             try(
                     Scanner sc = new Scanner(System.in);
                     ){
