@@ -1,0 +1,5 @@
+# Created at 2025-10-30T10:57:47.893
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Desktop\Java Full Stack - Virtusa - upGrade\Repository\Java-Full-Stack-Development-Program-Batch-1\Programs\Maven Project\SimpleMavenProject\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
