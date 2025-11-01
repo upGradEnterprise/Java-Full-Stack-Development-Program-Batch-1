@@ -28,13 +28,19 @@ public class JdbcTestApp {
 //            }
 
             // delete query
-            int result  = stmt.executeUpdate("delete from product where pid=3");
-            if(result>0){
-                System.out.println("Record deleted successfully");
-            }else {
-                System.out.println("record not present");
-            }
+//            int result  = stmt.executeUpdate("delete from product where pid=3");
+//            if(result>0){
+//                System.out.println("Record deleted successfully");
+//            }else {
+//                System.out.println("record not present");
+//            }
 
+            // retrieve query
+            ResultSet rs  = stmt.executeQuery("select * from Product");
+            while(rs.next()){
+                System.out.println("PId "+rs.getInt(1)+" PName is "+rs.getString(2)+" Price is "+rs.getFloat(3));
+            }
+            rs.close();
             stmt.close();
             con.close();
         }   catch (Exception e){
