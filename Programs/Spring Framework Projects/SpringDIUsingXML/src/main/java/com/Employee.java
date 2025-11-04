@@ -4,4 +4,7 @@ public class Employee {
     public void display() {
         System.out.println("display method");
     }
+    Employee() {
+        System.out.println("object created");
+    }
 }

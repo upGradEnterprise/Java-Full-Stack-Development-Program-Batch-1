@@ -12,7 +12,17 @@ public class DemoTest {
 
         Resource res  = new ClassPathResource("beans.xml"); // load the beans.xml file from resource directory
         BeanFactory factory = new XmlBeanFactory(res);  // created BeanFactory interface reference.
+
         Employee e1 = (Employee) factory.getBean("emp1");
         e1.display();
+
+        Employee e2 = (Employee) factory.getBean("emp1");
+        e2.display();
+        System.out.println("---------------------------");
+        Employee e3 = (Employee) factory.getBean("emp2");
+        e3.display();
+
+        Employee e4 = (Employee) factory.getBean("emp2");
+        e4.display();
     }
 }
