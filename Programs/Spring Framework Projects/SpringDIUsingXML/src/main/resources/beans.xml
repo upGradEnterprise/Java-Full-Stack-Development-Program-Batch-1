@@ -27,11 +27,16 @@
         <property name="state" value="Kar"></property>
     </bean>
 
-    <bean class="com.Employee" id="emp5">
+    <bean class="com.Address" id="add">
+        <property name="city" value="Mumbai"></property>
+        <property name="state" value="Mh"></property>
+    </bean>
+
+    <bean class="com.Employee" id="emp5" autowire="byName">
         <property name="id" value="102"></property>
         <property name="salary" value="16000"></property>
         <property name="name" value="Balaji"></property>
-        <property name="add" ref="add1"></property>
+      <!--  <property name="add" ref="add1"></property> -->
     </bean>
 
 </beans>

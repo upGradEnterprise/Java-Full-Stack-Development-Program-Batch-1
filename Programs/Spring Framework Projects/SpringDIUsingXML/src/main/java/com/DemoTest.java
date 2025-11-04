@@ -37,8 +37,8 @@ public class DemoTest {
 //        Employee e8 = (Employee) factory.getBean("emp4");
 //        System.out.println(e8);
 
-        Address a1 = (Address)factory.getBean("add1");
-        System.out.println(a1);
+//        Address a1 = (Address)factory.getBean("add1");
+//        System.out.println(a1);
         System.out.println("--------------------");
         Employee e9 = (Employee) factory.getBean("emp5");
         System.out.println(e9);
