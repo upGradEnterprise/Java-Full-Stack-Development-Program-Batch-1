@@ -21,4 +21,17 @@
         <property name="name" value="Ajay"></property>
 
      </bean>
+
+    <bean class="com.Address" id="add1">
+        <property name="city" value="Bangalore"></property>
+        <property name="state" value="Kar"></property>
+    </bean>
+
+    <bean class="com.Employee" id="emp5">
+        <property name="id" value="102"></property>
+        <property name="salary" value="16000"></property>
+        <property name="name" value="Balaji"></property>
+        <property name="add" ref="add1"></property>
+    </bean>
+
 </beans>
