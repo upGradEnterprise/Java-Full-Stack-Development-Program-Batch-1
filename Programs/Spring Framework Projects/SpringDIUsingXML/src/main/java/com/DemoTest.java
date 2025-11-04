@@ -33,5 +33,8 @@ public class DemoTest {
 
         Employee e7 = (Employee) factory.getBean("emp3");
         System.out.println(e7);
+
+        Employee e8 = (Employee) factory.getBean("emp4");
+        System.out.println(e8);
     }
 }
