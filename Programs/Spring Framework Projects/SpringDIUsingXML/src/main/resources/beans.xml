@@ -9,4 +9,10 @@
 
     <bean class="com.Employee" id="emp2" scope="prototype"></bean>
 
+    <bean class="com.Employee" id="emp3">
+        <constructor-arg value="100"></constructor-arg>
+        <constructor-arg value="Raj"></constructor-arg>
+        <constructor-arg value="12000"></constructor-arg>
+    </bean>
+
 </beans>
