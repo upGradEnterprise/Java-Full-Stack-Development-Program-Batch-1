@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Successfully login</h2>
+<h2>Successfully login <%=request.getAttribute("user")%></h2>
 </body>
 </html>

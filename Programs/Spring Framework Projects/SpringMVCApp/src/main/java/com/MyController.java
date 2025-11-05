@@ -30,6 +30,7 @@ public class MyController {
         String emailId = request.getParameter("emailId");
         String password = request.getParameter("password");
         if(emailId.equals("admin@gmail.com") && password.equals("admin@123")){
+            mv.addObject("user","admin");
             mv.setViewName("success.jsp");
         }else {
             mv.setViewName("failure.jsp");
