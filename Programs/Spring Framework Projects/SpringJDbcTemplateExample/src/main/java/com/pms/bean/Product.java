@@ -45,10 +45,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "Product[" +
                 "pid=" + pid +
                 ", pname='" + pname + '\'' +
                 ", price=" + price +
-                '}';
+                ']';
     }
 }

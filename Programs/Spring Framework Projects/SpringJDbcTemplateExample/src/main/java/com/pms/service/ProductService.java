@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -22,7 +24,15 @@ public class ProductService {
         }
     }
 
-    public List<Product> findAll() {
-        return productDao.findAll();
+//    public List<Product> findAll() {
+//        return productDao.findAll();
+//    }
+
+    public List<Map<String,Object>> findAllProductsAsMap() {
+        return productDao.findAllProductsAsMapObject();
+    }
+
+    public List<Product> findAllProductsAsList() {
+        return productDao.findAllProductsAsListObjects().stream().filter(p->p.getPrice()>50000).collect(Collectors.toList());
     }
 }
