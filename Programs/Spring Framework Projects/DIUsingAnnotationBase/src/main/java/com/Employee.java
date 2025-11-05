@@ -1,12 +1,18 @@
 package com;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component          // <bean class="com.Employee"></bean> id is employee
+@Scope("prototype")
 public class Employee {
+    @Value(value = "100")
     private int id;
+    @Value(value = "Ajay")
     private String name;
+    @Value(value = "45000")
     private float salary;
     @Autowired    // by default byType consider
     private Address add;
