@@ -48,6 +48,7 @@ public class ProductController {
         model.addAttribute("title", "Product Management System");
         List<Product> listOfProducts = productService.findAllProducts();
         System.out.println(listOfProducts);
+        model.addAttribute("listOfProducts", listOfProducts);
         return "viewProduct";
     }
 }
