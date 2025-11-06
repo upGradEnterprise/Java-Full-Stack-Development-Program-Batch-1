@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 public class ProductController {
 
@@ -44,6 +46,8 @@ public class ProductController {
     @RequestMapping(value = "/viewProductPageOpen",method = RequestMethod.GET)
     public String openViewProductPage(Model model) {  // DI
         model.addAttribute("title", "Product Management System");
+        List<Product> listOfProducts = productService.findAllProducts();
+        System.out.println(listOfProducts);
         return "viewProduct";
     }
 }

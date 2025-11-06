@@ -5,6 +5,8 @@ import com.dao.ProductDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
     @Autowired
@@ -18,5 +20,9 @@ public class ProductService {
         }else {
             return "Product didn't store";
         }
+    }
+
+    public List<Product> findAllProducts() {
+        return productDao.findAllProducts();    // no bussiness logic
     }
 }

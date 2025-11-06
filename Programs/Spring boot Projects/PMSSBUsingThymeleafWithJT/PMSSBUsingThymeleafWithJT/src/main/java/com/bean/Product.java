@@ -45,4 +45,10 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
+    public Product(int pid, String pname, float price) {
+        this.pid = pid;
+        this.pname = pname;
+        this.price = price;
+    }
 }
