@@ -17,4 +17,26 @@ public class MyController {
         //return "home";    // it search home.html page inside template folder.
     }
 
+    // http://localhost:8080/aboutusPage
+    @RequestMapping(value = "/aboutusPage",method = RequestMethod.GET)
+    public String AboutUs() {
+        System.out.println("About Us Page Open");
+        return "aboutus"; // using view resolved it open specific page part template folder.
+    }
+    // http://localhost:8080/contactusPage
+    @RequestMapping(value = "/contactusPage",method = RequestMethod.GET)
+    public String contactUs() {
+        System.out.println("Contact us Page open");
+        return "contactus"; // using view resolved it open specific page part template folder.
+        //return "home";    // it search home.html page inside template folder.
+    }
+    // http://localhost:8080/loginPage
+    @RequestMapping(value = "/loginPage",method = RequestMethod.GET)
+    public String loginPage() {
+        System.out.println("login page open");
+        return "login"; // using view resolved it open specific page part template folder.
+
+    }
+
+
 }
