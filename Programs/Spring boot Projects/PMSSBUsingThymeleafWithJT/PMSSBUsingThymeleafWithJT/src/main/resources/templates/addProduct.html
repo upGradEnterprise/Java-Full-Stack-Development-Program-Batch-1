@@ -6,12 +6,13 @@
 </head>
 <body>
 <h2>Welcome to <span th:text="${title}"></span></h2>
+<div th:text="${result}" style="color:red"></div>
 <form action="#" th:action="@{/storeProductInDb}" th:object="${product}" method="post">
     <label>PId</label>
     <input type="number" th:field="*{pid}"><br/>
     <label>PName</label>
     <input type="text" th:field="*{pname}"><br/>
-    <label>PId</label>
+    <label>Price</label>
     <input type="number" th:field="*{price}"><br/>
     <input type="submit" value="Add Product">
 </form>

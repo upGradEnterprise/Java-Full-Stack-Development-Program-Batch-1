@@ -1,6 +1,8 @@
 package com.controller;
 
 import com.bean.Product;
+import com.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ProductController {
+
+    @Autowired
+    ProductService productService;
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String openIndexPage(Model model) {  // DI
@@ -27,7 +32,10 @@ public class ProductController {
         model.addAttribute("title", "Product Management System");
         model.addAttribute("product", product);
         System.out.println(product);  // toString method called..
-            product.setPrice(0.0f);
+        String result = productService.storeProduct(product);
+        System.out.println(result);
+        model.addAttribute("result", result);
+        product.setPrice(0.0f);
             product.setPid(0);
             product.setPname("");
         return "addProduct";
