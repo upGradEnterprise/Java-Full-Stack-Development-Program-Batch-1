@@ -56,4 +56,18 @@ public class ProductController {
         return null;
     }
 
+
+
+    // http://localhost:8080/storeProduct
+    // method : post
+    // data : {"pid":100,"pname":"Mobile","price":75000}
+
+    @RequestMapping(value = "storeProduct",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public String storeProduct(@RequestBody Product product){// it extract json data from request and convert to object.
+        System.out.println(product);        // call toString method
+        return "Data stored, pname is "+product.getPname();
+    }
 }
