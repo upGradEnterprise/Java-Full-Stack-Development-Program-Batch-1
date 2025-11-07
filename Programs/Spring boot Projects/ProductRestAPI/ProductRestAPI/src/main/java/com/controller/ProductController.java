@@ -68,6 +68,75 @@ public class ProductController {
     )
     public String storeProduct(@RequestBody Product product){// it extract json data from request and convert to object.
         System.out.println(product);        // call toString method
-        return "Data stored, pname is "+product.getPname();
+        //productList.add(product);     we can add the duplicate product
+        int flag =0;
+        Iterator<Product> li =  productList.iterator();
+        while(li.hasNext()) {
+            Product p = li.next();
+            if(p.getPid()==product.getPid()){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0){
+            productList.add(product);
+            return "Product added successfully";
+        }else {
+            return "Product id must be unique";
+        }
+
+    }
+
+
+    // http://localhost:8080/updateProduct
+    // method : put/patch
+    // data : {"pid":100,"price":78000}
+
+    @RequestMapping(value = "updateProduct",
+            method = RequestMethod.PUT,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public String updateProductPrice(@RequestBody Product product){// it extract json data from request and convert to object.
+        System.out.println(product);        // call toString method
+        //productList.add(product);     we can add the duplicate product
+        int flag =0;
+        Iterator<Product> li =  productList.iterator();
+        while(li.hasNext()) {
+            Product p = li.next();
+            if(p.getPid()==product.getPid()){
+                p.setPrice(product.getPrice());
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1){
+            return "Product update successfully";
+        }else {
+            return "Product not present";
+        }
+    }
+
+    // http://localhost:8080/deleteProduct/1
+    // method : delete
+
+    @RequestMapping(value = "deleteProduct/{pid}",
+            method = RequestMethod.DELETE
+    )
+    public String deleteProduct(@PathVariable("pid") int pid){// it extract json data from request and convert to object.
+        int flag =0;
+        Iterator<Product> li =  productList.iterator();
+        while(li.hasNext()) {
+            Product p = li.next();
+            if(p.getPid()==pid){
+                li.remove();
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1){
+            return "Product deleted successfully";
+        }else {
+            return "Product not present";
+        }
     }
 }
