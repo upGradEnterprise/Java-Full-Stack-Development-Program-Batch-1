@@ -1,9 +1,6 @@
 package com.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -14,9 +11,13 @@ public class Product {
     private String pname;
     private float price;
     private int qty;
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "pid") // link to orders table pi as fk
     private List<Orders> listOfOrders;
+
+    public Product() {
+        System.out.println("Product Constructor called.");
+    }
 
     public int getPid() {
         return pid;

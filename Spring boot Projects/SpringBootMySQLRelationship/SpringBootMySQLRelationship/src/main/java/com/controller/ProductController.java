@@ -27,4 +27,9 @@ public class ProductController {
     public List<Product> findAll(){
         return productService.findAll();
     }
+
+    @GetMapping(value = "findById/{pid}")
+    public String findProduct(@PathVariable("pid") int pid){
+        return productService.findById(pid);
+    }
 }

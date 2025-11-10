@@ -24,4 +24,14 @@ public class ProductService {
     public List<Product> findAll(){
         return productRepository.findAll();
     }
+
+    public String findById(int id){
+         Optional<Product> result =  productRepository.findById(id);
+         if(result.isPresent()){
+             Product p =  result.get();
+             return "Product name is "+p.getPname();
+         }else {
+             return "Product not present";
+         }
+    }
 }

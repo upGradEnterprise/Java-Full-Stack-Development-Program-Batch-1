@@ -15,6 +15,9 @@ public class Orders {       // if table name more than one word order_details
     @Column(name = "orderdlacedate")
     private LocalDateTime orderPlaceDate;   // it create column as order_place_date
 
+    public Orders() {
+        System.out.println("Orders Constructor called.");
+    }
     public int getOid() {
         return oid;
     }
