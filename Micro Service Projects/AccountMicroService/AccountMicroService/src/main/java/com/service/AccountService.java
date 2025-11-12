@@ -23,6 +23,7 @@ public class AccountService {
     }
 
     public float findBalance(int accno){
+        System.err.println("findBalance called");
         Optional<Account> result = accountRepository.findById(accno);
         if(result.isPresent()){
             Account accountFromDb =  result.get();
