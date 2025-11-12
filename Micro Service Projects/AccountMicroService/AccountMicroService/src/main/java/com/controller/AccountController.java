@@ -31,4 +31,9 @@ public class AccountController {
     public int findAccountNumber(@PathVariable("emailId") String emailId){
         return accountService.findAccount(emailId);
     }
+
+    @GetMapping(value = "hello")
+    public String sayHello(@RequestParam("msg") String msg){
+        return "Hello "+msg;
+    }
 }

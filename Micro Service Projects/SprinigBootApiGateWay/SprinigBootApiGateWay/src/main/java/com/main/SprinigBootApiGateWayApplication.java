@@ -22,10 +22,22 @@ public class SprinigBootApiGateWayApplication {
     //return builder.routes().build();
         return builder
                 .routes().
+
+                // Generic rules for all get, post, put and delete method
+
                 //route(r->r.path("/account/**").and().method("GET","POST","PUT","DELETE").uri("http://localhost:8282")).
                 //route(r->r.path("/gpay/**").and().method("GET","POST","PUT","DELETE").uri("http://localhost:8383")).
-                        route(r->r.path("/account/findBalanceUsingAccNo/**").and().method("GET").uri("http://localhost:8282")).
-                route(r->r.path("/account/create/**").and().method("POST").uri("http://localhost:8282")).
-                        build();
+
+                        // specific method and specific path
+
+//                        route(r->r.path("/account/findBalanceUsingAccNo/**").and().method("GET").uri("http://localhost:8282")).
+//                route(r->r.path("/account/create/**").and().method("POST").uri("http://localhost:8282")).
+
+                route(r->r.path("/account/**").and().method("GET","POST","PUT","DELETE").
+                filters(f->f.addRequestParameter("msg","Welcome to API Gateway ")).
+        uri("http://localhost:8282")).
+                route(r->r.path("/gpay/**").and().method("GET","POST","PUT","DELETE").uri("http://localhost:8383")).
+
+                build();
     }
 }
