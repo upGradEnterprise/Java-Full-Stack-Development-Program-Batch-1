@@ -22,8 +22,10 @@ public class SprinigBootApiGateWayApplication {
     //return builder.routes().build();
         return builder
                 .routes().
-                route(r->r.path("/account/**").and().method("GET","POST").uri("http://localhost:8282")).
-                route(r->r.path("/gpay/**").and().method("GET","POST").uri("http://localhost:8383")).
-                build();
+                //route(r->r.path("/account/**").and().method("GET","POST","PUT","DELETE").uri("http://localhost:8282")).
+                //route(r->r.path("/gpay/**").and().method("GET","POST","PUT","DELETE").uri("http://localhost:8383")).
+                        route(r->r.path("/account/findBalanceUsingAccNo/**").and().method("GET").uri("http://localhost:8282")).
+                route(r->r.path("/account/create/**").and().method("POST").uri("http://localhost:8282")).
+                        build();
     }
 }
