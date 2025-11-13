@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("public")
 public class SimpleController {
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "")
     public String sayHello() {
         return "Welcome to Simple Spring boot security example - public access";
     }

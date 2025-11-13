@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("admin")
 public class AdminController {
-    @GetMapping(value = "/")
+    @GetMapping(value = "")
     public String sayHello() {
         return "Welcome to Simple Spring boot security example - admin access";
     }

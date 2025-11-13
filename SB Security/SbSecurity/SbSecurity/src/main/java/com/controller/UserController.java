@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("user")
 public class UserController {
-    @GetMapping(value = "/")
+    @GetMapping(value = "")
     public String sayHello() {
         return "Welcome to Simple Spring boot security example - user access";
     }

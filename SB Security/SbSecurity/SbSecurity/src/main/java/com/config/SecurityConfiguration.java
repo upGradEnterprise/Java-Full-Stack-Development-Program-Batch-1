@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -92,7 +93,8 @@ public class SecurityConfiguration {
                             http.requestMatchers("/user/**").hasAnyRole("USER");   // USER ROLE as well as ADMIN can access
                             http.requestMatchers("/admin/**").hasAnyRole("ADMIN");   // ADMIN ROLE can access
                         }).
-                        formLogin(form->form.permitAll())
+                        //formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
+                         formLogin(f->f.permitAll())
                         .build();
     }
 }
