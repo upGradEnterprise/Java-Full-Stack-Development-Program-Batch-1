@@ -9,8 +9,8 @@ public class FluxExample {
 
         Flux<Integer> flux = Flux.just(1,2,3,4,5).concatWithValues(6).concatWith(Flux.error(new Exception("Error generated"))).concatWithValues(7);
 
-        flux.subscribe(System.out::println, System.err::println,()->System.out.println("Done"));
-
+        //flux.subscribe(System.out::println, System.err::println,()->System.out.println("Done"));
+        flux.subscribe((data)->System.out.println(data),(error)->System.err.println(error),()->System.out.println("Done"));
         System.out.println("Normal code");
        }
 }
