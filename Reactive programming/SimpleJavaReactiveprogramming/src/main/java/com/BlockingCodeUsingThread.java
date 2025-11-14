@@ -8,7 +8,7 @@ public class BlockingCodeUsingThread {
             Thread t1 = Thread.currentThread();
             try{
                 System.out.println("user defined thread "+t1.getName());
-                Thread.sleep(5000);
+                //Thread.sleep(5000);
             }catch (Exception e) {
             }
         });
