@@ -2,6 +2,8 @@ package com;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -16,6 +18,7 @@ public class ReactiveConsumerApplication {
 
 
     @Bean
+    @LoadBalanced
     public WebClient webClient() {
         return WebClient.create();
     }

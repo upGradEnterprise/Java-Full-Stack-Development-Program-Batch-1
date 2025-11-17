@@ -12,6 +12,7 @@ public class ProductConsumerService {
 
 
     public Mono<String> callProducer() {
-       return webClient.get().uri("http://localhost:8080/reactive_producer/greeting").retrieve().bodyToMono(String.class);
+       //return webClient.get().uri("http://localhost:8080/reactive_producer/greeting").retrieve().bodyToMono(String.class);
+        return webClient.get().uri("http://REACTIVEPRODUCER/reactive_producer/greeting").retrieve().bodyToMono(String.class);
     }
 }
