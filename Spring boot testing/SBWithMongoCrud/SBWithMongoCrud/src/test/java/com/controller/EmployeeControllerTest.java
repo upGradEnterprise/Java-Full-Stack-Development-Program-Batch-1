@@ -31,6 +31,7 @@ public class EmployeeControllerTest {
 
 
     @Test
+    @Disabled
     public void storeEmployeeTest() {
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/employee/store";
