@@ -1,5 +1,9 @@
 package com.document;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,7 +15,10 @@ import org.springframework.stereotype.Component;
 public class Employee {
     @Id
     private int id;
+    @NotBlank(message = "name is required")
     private String name;
+    @Min(value = 8000,message = "Salary must be min 8000")
+    @Max(value = 50000,message = "Salary be be max 50000")
     private float salary;
 
     public Employee() {

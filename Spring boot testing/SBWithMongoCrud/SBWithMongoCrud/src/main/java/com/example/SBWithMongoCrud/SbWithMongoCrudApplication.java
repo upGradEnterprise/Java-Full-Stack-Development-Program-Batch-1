@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.validation.annotation.Validated;
 
 @SpringBootApplication(scanBasePackages = "com")        // @Restcontroller, @Service, @Repository
 @EnableMongoRepositories(basePackages = "com.repository")   // mongo repository
