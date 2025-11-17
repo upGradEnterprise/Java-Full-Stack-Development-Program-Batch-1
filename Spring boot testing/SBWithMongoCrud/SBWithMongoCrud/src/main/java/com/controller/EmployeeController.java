@@ -29,4 +29,17 @@ public class EmployeeController {
         logger.info("Find All Employees"+employees.size());
         return  employees;
     }
+
+    @GetMapping(value = "exception/{value}")
+    public String generateException(@PathVariable("value") int value){
+        try{
+            int result = 100/value;
+            logger.info("Exception not generated"+value);
+            logger.warn("Don't value zero value it may generated exception");
+            return "Exception not generate "+result;
+        }catch (Exception e){
+            logger.error("Generate Exception"+e.getMessage());
+            return "Generate Exception";
+        }
+    }
 }
