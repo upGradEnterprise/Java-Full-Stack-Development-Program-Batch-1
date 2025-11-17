@@ -19,7 +19,7 @@ public class EmployeeControllerTest {
     Employee employee;
 
     @Test
-    @Disabled
+    //@Disabled
     public void findAllTest()
     {
         RestTemplate restTemplate = new RestTemplate();
@@ -31,7 +31,7 @@ public class EmployeeControllerTest {
 
 
     @Test
-    @Disabled
+    //@Disabled
     public void storeEmployeeTest() {
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/employee/store";

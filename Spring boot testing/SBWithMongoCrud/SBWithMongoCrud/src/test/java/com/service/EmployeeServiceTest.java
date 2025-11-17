@@ -20,7 +20,7 @@ public class EmployeeServiceTest {
     @Autowired
     Employee employee;
     @Test
-    @Disabled
+    //@Disabled
     public void testFindAll() {
        List<Employee> listOfEmployees =  employeeService.findAll();
         Assertions.assertEquals(listOfEmployees.size(),3);
@@ -31,7 +31,7 @@ public class EmployeeServiceTest {
         Assertions.assertEquals(employee1.getSalary(),45000);
     }
     @Test
-    @Disabled
+    //@Disabled
     public void storeEmployee() {
         employee.setId(124);
         employee.setName("Vikash");
