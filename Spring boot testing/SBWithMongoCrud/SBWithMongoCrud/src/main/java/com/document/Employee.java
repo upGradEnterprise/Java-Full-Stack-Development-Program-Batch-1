@@ -1,9 +1,7 @@
 package com.document;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,6 +14,8 @@ public class Employee {
     @Id
     private int id;
     @NotBlank(message = "name is required")
+    //@Length(min = 2, max = 5)
+    @Pattern(regexp = "[a-z]+")
     private String name;
     @Min(value = 8000,message = "Salary must be min 8000")
     @Max(value = 50000,message = "Salary be be max 50000")
