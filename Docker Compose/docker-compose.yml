@@ -1,0 +1,29 @@
+
+services:
+  angular-service:
+    build: ./frontend/login-app/.
+    ports:
+      - 81:80
+  eureka-server:
+    build: ./backend/erueka-server/.
+    ports:
+      - 8761:8761
+    restart: always
+  login-micro-service:
+    build: ./backend/login-micro-service
+    ports:
+      - 9090:9090
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eureka-server:8761/eureka/
+    depends_on:
+      - eureka-server
+      - mysql-service
+    restart: always
+  mysql-service:
+    image: mysql:8.0
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=caltech_db
+    restart: always

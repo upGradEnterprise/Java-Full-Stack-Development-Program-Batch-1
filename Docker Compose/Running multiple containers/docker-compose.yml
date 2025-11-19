@@ -1,0 +1,18 @@
+services:
+  akash-service:
+    image: akashkale/my-spring-boot:upgrad_1.0
+    ports:
+      - 81:8080
+  ananya-service:
+    image: ananya8722/my-spring-boot:upgrad_1.0
+    ports:
+      - 82:8080
+  ehshanulla-service:
+    image: ehshanulla/my-spring-boot:1.0
+    ports:
+      - 83:8080
+  lalithagullipalli-service:
+    image: lalithagullipalli/my-spring-boot:upgrad_1.0
+    ports:
+      - 84:8080 
+  
