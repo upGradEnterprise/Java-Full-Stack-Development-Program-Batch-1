@@ -14,8 +14,8 @@ public class ConsumerService {
     RestTemplate restTemplate;
 
 
-    @CircuitBreaker(name="msgService",fallbackMethod = "fallbackMethod")
-    @Retry(name = "myTryInstance")
+    //@CircuitBreaker(name="msgService",fallbackMethod = "fallbackMethod")
+    @Retry(name = "myTryInstance",fallbackMethod = "reTryFallback")
     //@Scheduled(fixedRate = 1000)
     public String callProducer(){
         System.err.print("Retrying calling external service....");
@@ -24,5 +24,8 @@ public class ConsumerService {
 
     public String fallbackMethod(Throwable throwable){
         return "fallback - Producer Micro Service unavailable";
+    }
+    public String reTryFallback(Throwable throwable){
+        return "fallback - Producer Micro Service unavailable, after many re try";
     }
 }
