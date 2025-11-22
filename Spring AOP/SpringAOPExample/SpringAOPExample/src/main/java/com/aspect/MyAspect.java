@@ -1,10 +1,7 @@
 package com.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -31,4 +28,10 @@ public class MyAspect {
         System.out.println(pp.getSignature().getName()+" took "+(start-end)+"ms");
         return obj;
     }
+
+    @AfterThrowing("execution(* com.controller.HelloController.generateException(..))")
+    public void exceptionGenerateAdvice() {
+        System.out.println("it execute if any exception generate");
+    }
+
 }
