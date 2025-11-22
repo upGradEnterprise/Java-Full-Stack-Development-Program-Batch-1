@@ -2,6 +2,7 @@
 services:
   product-service:
     build: ./ProductRestAPIUsingSpringData/
+    image: akashkale/spring-boot-with-docker:upgrade-1.2
     ports:
       - 80:8080
     depends_on:
