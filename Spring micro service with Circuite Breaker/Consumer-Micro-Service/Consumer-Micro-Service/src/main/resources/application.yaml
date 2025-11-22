@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: Consumer-Micro-Service
+server:
+  port: 8282
+resilience4j:
+  circuitbreaker:
+    instances:
+      msgService:
+        minimum-number-of-calls: 5
+        sliding-window-size: 5
+        failure-rate-threshold: 10
+  retry:
+    instances:
+      myTryInstance:
+        max-attempts: 5
+        wait-duration: PT4S
+

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Producer-Micro-Service
+server:
+  port: 8181
