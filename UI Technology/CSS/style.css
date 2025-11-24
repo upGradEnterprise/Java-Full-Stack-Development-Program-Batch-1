@@ -1,0 +1,18 @@
+h1{
+    color: brown;
+    font-size: 30pt;
+}
+div{
+    background-color: lightgrey;
+    color:chocolate
+}
+div p{
+    font-size: 14pt;
+    color: coral;
+}
+p.abc{
+    color:green
+}
+#p1{
+    color:blue
+}
