@@ -29,9 +29,41 @@ function display1() {
 }
 display1();
 
-// Expression style function 
+// Expression style function  ES5 
 //display3();// Error: display3 is not a function, it does't support hosting
 var display3 = function() {
     document.write("<br/>Expression Function Called<br/>");
 }
 display3();
+
+// arrow function style ES6 
+
+let display4 = ()=>document.write("<br/>Arrow Function Called<br/>");
+display4();
+
+// addition of two number using expression style function
+
+let addNumber1 = function(a,b){
+    var sum =a+b;
+    return sum;
+}
+document.write("<br/>Addition is using expression style: " + addNumber1(20,30) + "<br/>") ;
+let findLargest1 = function(a,b){
+    if(a>b){
+        return "1st number is largest";
+    }else {
+        return "2nd number is largest";
+    }
+}
+document.write("using expression style " + findLargest1(100,50) + "<br/>") ;
+// addition of two number using arrow function style
+let addNumber2 = (a,b)=>a+b;
+document.write("<br/>Addition is using arrow style: " + addNumber2(20,30) + "<br/>") ;
+let findLargest2 = (a,b)=>{
+    if(a>b){
+        return "1st number is largest";
+    }else {
+        return "2nd number is largest";
+    }
+}
+document.write("using arrow style " + findLargest2(100,50) + "<br/>") ;
