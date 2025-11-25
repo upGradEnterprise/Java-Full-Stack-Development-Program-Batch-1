@@ -20,7 +20,9 @@ for(let j=0;j<1000;j++){
 //document.write("Value of j using let: "+j+"<br>"); // Error: j is not defined
 function testVar(){
     var d=100;
+    e=300;
     document.write("Value of a inside function using var: "+d+"<br>");
 }
 testVar();
-document.write("Value of a outside function using var: "+d+"<br>");
+//document.write("Value of a outside function using var: "+d+"<br>");
+document.write("Value of e outside function using var: "+e+"<br>");
