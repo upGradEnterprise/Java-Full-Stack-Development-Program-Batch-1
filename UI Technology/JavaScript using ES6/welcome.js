@@ -1,0 +1,1 @@
+alert("Welcome to External JS File")
