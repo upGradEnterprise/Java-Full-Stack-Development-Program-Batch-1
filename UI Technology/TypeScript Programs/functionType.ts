@@ -67,18 +67,21 @@
 
 
 // function with rest operator 
-function empInfo(id:number,name:string,age:number,...skillSet:string[]):void {
-    console.log("id is "+id+" name is "+name+" Age is "+age)
-    console.log("Number of skillSet "+skillSet.length)
-    for(let skill of skillSet){
-        console.log(skill)
-    }
-}
-let skillInfo:string[]=["HTML","CSS","JavaScript","TypeScript","Angular"];
+// function empInfo(id:number,name:string,age:number,...skillSet:string[]):void {
+//     console.log("id is "+id+" name is "+name+" Age is "+age)
+//     console.log("Number of skillSet "+skillSet.length)
+//     for(let skill of skillSet){
+//         console.log(skill)
+//     }
+// }
+// let skillInfo:string[]=["HTML","CSS","JavaScript","TypeScript","Angular"];
 
-empInfo(1,"Ravi",21);   // 0 parameter 
-empInfo(2,"Ramesh",23,"C")  // 1 
-empInfo(3,"Lokesh",24,"Java","Python","React JS")  // many 
-empInfo(4,"Ajay",28,skillInfo[0],skillInfo[1],skillInfo[2],skillInfo[3],skillInfo[4]);
-empInfo(5,"Mahesh",29,...skillInfo);    // using spread we can array value individually 
+// empInfo(1,"Ravi",21);   // 0 parameter 
+// empInfo(2,"Ramesh",23,"C")  // 1 
+// empInfo(3,"Lokesh",24,"Java","Python","React JS")  // many 
+// empInfo(4,"Ajay",28,skillInfo[0],skillInfo[1],skillInfo[2],skillInfo[3],skillInfo[4]);
+// empInfo(5,"Mahesh",29,...skillInfo);    // using spread we can array value individually 
+
+
+
 
