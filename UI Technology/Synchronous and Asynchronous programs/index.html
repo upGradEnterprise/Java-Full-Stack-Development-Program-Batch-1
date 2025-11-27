@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- <script src="synchronous.js"></script> -->
-     <script src="asynchronous.js"></script>
+     <!-- <script src="asynchronous.js"></script> -->
+      <script src="asynchronousOperations.js"></script>
 </head>
-<body>
+<body onload="fun()">
     <h2>Synchronous and Asynchronous work</h2>
+    <div id="output"></div>
+    <br/>
+    <input type="button" value="Stop Event" onclick="stop()"/>
+     <input type="button" value="Start Event" onclick="fun()"/>
 </body>
 </html>
