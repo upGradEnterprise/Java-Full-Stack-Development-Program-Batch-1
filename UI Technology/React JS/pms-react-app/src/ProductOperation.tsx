@@ -1,14 +1,19 @@
 import { useState } from "react";
-import {ProductType } from "./ProductType";
+import  type {ProductType } from "./ProductType";
 
 function ProductOperation(){
-let [product,setProduct]=useState<ProductType>({"pid":0,"pname":"",price:0.0,"qty":0,imageUrl:""})
-let [products,setProducts]=useState<ProductType[]>([]);
+let [product,setProduct]=useState<ProductType>({"pid":0,"pname":"",price:0.0,"qty":0,imageUrl:"",}); // array type 
+let [products,setProducts]=useState<ProductType[]>([]);                     // array of object type 
 let addProduct = (event:any)=> {
     console.log("event fired")
     event.preventDefault();         // disable form action behaviour 
-    //console.log(product)
-    setProducts([...products,product])
+    console.log(product)
+    
+    let tempProducts = products.slice();
+    tempProducts.push(product);
+    setProducts(tempProducts);
+
+    //setProducts([...products,product])
     setProduct({"pid":0,"pname":"",price:0.0,"qty":0,imageUrl:""});
     console.log("Product Added")
 }
