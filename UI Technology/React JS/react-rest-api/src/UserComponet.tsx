@@ -1,9 +1,12 @@
 import { useState } from "react";
+interface UserType {
+    id:number;
+}
 
 function UserComponent() {
 
 let URL ="https://dummyjson.com/users";
-let [users,setUsers]=useState([]);
+let [users,setUsers]=useState<UserType[]>([]);
 let loadFakeData = ()=> {
   //fetch(URL).then(response=>response.json()).then(result=>console.log(result.users)).catch(error=>console.log(error))
 
