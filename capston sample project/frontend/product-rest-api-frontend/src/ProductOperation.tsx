@@ -7,7 +7,7 @@ let [product,setProduct]=useState<Product>({id:"",pname:"",price:0.0,qty:0});
 let [products,setProducts]=useState<Product[]>([])
 let [errorMsg,setErrorMsg]=useState<any>("")
 let PRODUCT_BASE_URL="http://localhost:8080/api/product";
-
+let [id,setId]=useState<string>("")
 let [pname,setPName]=useState<string>("")
 let [price,setPrice]=useState<number>(0.0)
 let [qty,setQty]=useState<number>(0)
@@ -33,10 +33,11 @@ let storeOrUpdateProduct=async (event:any)=> {
     event.preventDefault();
     //console.log("event fired")
     console.log(pname,price,qty)            
-    let product = {pname,price,qty} // converting each state variable to object. 
+    
     //console.log(product)
     if(buttonValue=="Add Product"){
     try{
+        let product = {pname,price,qty} // converting each state variable to object. 
     let result = await axios.post(PRODUCT_BASE_URL+"/store",product)
     console.log(result);
     setErrorMsg("Your record stored with id as "+result.data)
@@ -46,14 +47,15 @@ let storeOrUpdateProduct=async (event:any)=> {
     }
 }else {
 
-    // try{
-    // let result = await axios.patch(PRODUCT_BASE_URL+"/update",product)
-    // console.log(result);
-    // setErrorMsg("Record updated successfully "+result.data)
-    // }catch(error:any){
-    //     console.log(error.message)
-    //     setErrorMsg(error.message)
-    // }
+    try{
+    let product = {id,pname,price,qty} // converting each state variable to object. 
+    let result = await axios.patch(PRODUCT_BASE_URL+"/update",product)
+    console.log(result);
+    setErrorMsg("Record updated successfully "+result.data)
+    }catch(error:any){
+        console.log(error.message)
+        setErrorMsg(error.message)
+    }
     console.log("ready to update")
     setButtonValue("Add Product");
 }
@@ -62,19 +64,20 @@ let storeOrUpdateProduct=async (event:any)=> {
     setQty(0)
 }
 let deleProduct = async(pid:any)=>{
-    console.log(pid)
-    // try{
-    // let result = await axios.delete(PRODUCT_BASE_URL+"/delete/"+pid)
-    // console.log(result);
-    // setErrorMsg("your record deleted successfully "+result.data)
-    // }catch(error:any){
-    //     console.log(error.message)
-    //     setErrorMsg(error.message)
-    // }
+    //console.log(pid)
+    try{
+    let result = await axios.delete(PRODUCT_BASE_URL+"/delete/"+pid)
+    console.log(result);
+    setErrorMsg("your record deleted successfully "+result.data)
+    }catch(error:any){
+        console.log(error.message)
+        setErrorMsg(error.message)
+    }
 }
 
 let readyToUpdate = (product:any)=>{
     console.log(product)
+    setId(product.id)
     setPName(product.pname)
     setPrice(product.price)
     setQty(product.qty)

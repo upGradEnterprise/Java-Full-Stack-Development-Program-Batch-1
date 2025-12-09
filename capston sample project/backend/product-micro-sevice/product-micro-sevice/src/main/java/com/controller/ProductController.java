@@ -25,4 +25,14 @@ public class ProductController {
     public String store(@RequestBody Product product){
         return productService.storeProduct(product);
     }
+
+    @DeleteMapping(value = "delete/{id}")
+    public String deleteProduct(@PathVariable("id") String id){
+        return productService.deleteProduct(id);
+    }
+
+    @PatchMapping(value = "update",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String update(@RequestBody Product product){
+        return productService.updateProduct(product);
+    }
 }
