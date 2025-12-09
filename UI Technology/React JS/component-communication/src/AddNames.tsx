@@ -1,12 +1,13 @@
 import { useState } from "react";
-import DisplayNames from "./DisplayNames";
 
-function AddNames() {
+
+function AddNames(props:any) {
 let [name,setName]=useState<string>("");
 let [names,setNames]=useState<string[]>([]);
 
-let addData = ()=> {
+let addData =()=> {
     setNames([...names,name])
+    //props.sendDataToParent(names);
     setName("");
 }
     return(
@@ -16,7 +17,8 @@ let addData = ()=> {
             name="name" onChange={(event:any)=>setName(event.target.value)} value={name}/>
             <input type="button" value="Add Name" onClick={addData}/>
             <hr/>
-            <DisplayNames data={names}></DisplayNames>
+            {/* <DisplayNames data={names}></DisplayNames> */}
+            {props.sendDataToParent(names)}
         </div>
     )
 
