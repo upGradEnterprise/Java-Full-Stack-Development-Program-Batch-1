@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/product")
+@CrossOrigin()   // this end point can call by end front end technologies.
 public class ProductController {
 
     @Autowired
