@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type {Product } from "./Product";
 import axios from "axios";
 
@@ -11,6 +11,11 @@ let PRODUCT_BASE_URL="http://localhost:8080/api/product";
 let [pname,setPName]=useState<string>("")
 let [price,setPrice]=useState<number>(0.0)
 let [qty,setQty]=useState<number>(0)
+let [buttonValue,setButtonValue]=useState<string>("Add Product")
+
+useEffect(()=>{
+    loadProduct();
+},[errorMsg])
 
 let loadProduct = async ()=> {
     setErrorMsg("")
@@ -24,12 +29,13 @@ let loadProduct = async ()=> {
     }
 }
 
-let storeProduct=async (event:any)=> {
+let storeOrUpdateProduct=async (event:any)=> {
     event.preventDefault();
     //console.log("event fired")
     console.log(pname,price,qty)            
     let product = {pname,price,qty} // converting each state variable to object. 
     //console.log(product)
+    if(buttonValue=="Add Product"){
     try{
     let result = await axios.post(PRODUCT_BASE_URL+"/store",product)
     console.log(result);
@@ -38,16 +44,47 @@ let storeProduct=async (event:any)=> {
         console.log(error.message)
         setErrorMsg(error.message)
     }
+}else {
+
+    // try{
+    // let result = await axios.patch(PRODUCT_BASE_URL+"/update",product)
+    // console.log(result);
+    // setErrorMsg("Record updated successfully "+result.data)
+    // }catch(error:any){
+    //     console.log(error.message)
+    //     setErrorMsg(error.message)
+    // }
+    console.log("ready to update")
+    setButtonValue("Add Product");
+}
     setPName("")
     setPrice(0.0)
     setQty(0)
+}
+let deleProduct = async(pid:any)=>{
+    console.log(pid)
+    // try{
+    // let result = await axios.delete(PRODUCT_BASE_URL+"/delete/"+pid)
+    // console.log(result);
+    // setErrorMsg("your record deleted successfully "+result.data)
+    // }catch(error:any){
+    //     console.log(error.message)
+    //     setErrorMsg(error.message)
+    // }
+}
+
+let readyToUpdate = (product:any)=>{
+    console.log(product)
+    setPName(product.pname)
+    setPrice(product.price)
+    setQty(product.qty)
+    setButtonValue("Update Product")
 }
 return(
     <div>
         <h3>Product Component</h3>
         <span style={{"color":"red"}}>{errorMsg}</span>
-        <input type="button" value="Load Product" onClick={loadProduct}/>
-        <form onSubmit={storeProduct}>
+        <form onSubmit={storeOrUpdateProduct}>
             <label>PName</label>
             <input type="text" name="pname" value={pname} 
             onChange={(event:any)=>setPName(event.target.value)}/><br/>
@@ -60,7 +97,7 @@ return(
             <input type="number" name="qty" value={qty} 
             onChange={(event:any)=>setQty(event.target.value)}/><br/>
 
-            <input type="submit" value="Add Product"/>
+            <input type="submit" value={buttonValue}/>
         </form>
         <hr/>
         <table>
@@ -70,6 +107,8 @@ return(
                     <th>PName</th>
                     <th>Price</th>
                     <th>Qty</th>
+                    <td>Delete</td>
+                    <td>Update</td>
                 </tr>
             </thead>
             <tbody>
@@ -80,6 +119,14 @@ return(
                         <td>{p.pname}</td>
                         <td>{p.price}</td>
                         <td>{p.qty}</td>
+                        <td>
+                            <input type="button" value="Delete"
+                            onClick={()=>deleProduct(p.id)}/>
+                        </td>
+                        <td>
+                            <input type="button" value="Update"
+                            onClick={()=>readyToUpdate(p)}/>
+                        </td>
                     </tr>
                     )
                 }
