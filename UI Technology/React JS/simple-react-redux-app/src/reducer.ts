@@ -1,11 +1,11 @@
 // name is global state variable. 
 let initialState = {
-    name:"Akash Kale" ,      // name of type string 
-    counter:100,
-    products:[
-        {pid:100,pname:"TV",price:56000},
-        {pid:101,pname:"Computer",price:35000},
-    ]
+        name:"Akash Kale" ,      // name of type string 
+        counter:100,
+        products:[
+            {pid:100,pname:"TV",price:56000},
+            {pid:101,pname:"Computer",price:35000},
+        ]
 }
 function reducer(state:any=initialState,action:any): any{
         // with condition we can do the change on state variable 

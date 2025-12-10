@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataList component Shallow render of DataList 1`] = `
+<DataList
+  Component={[Function]}
+  allDataLists={
+    Object {
+      "listID_1": Object {
+        "data": Array [],
+        "listURL": "list1url",
+        "loading": false,
+        "total": 10,
+      },
+    }
+  }
+  componentProps={
+    Object {
+      "className": "dataListParent",
+    }
+  }
+  dataListClean={[Function]}
+  dataListSendRequest={[Function]}
+  forceKeepData={false}
+  listID="listID_1"
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;
