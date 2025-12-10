@@ -6,7 +6,7 @@ function Parent() {
 let [name,setName]=useState<string>("Raj Deep")
 let [age,setAge]=useState<number>(21)
     return(
-        <MyContext.Provider value={{name,age}}>
+        <MyContext.Provider value={{name,age,setAge}}>
         <div>
             <h3>Parent Component</h3>
             <p>Name is in parent component is {name}</p>
