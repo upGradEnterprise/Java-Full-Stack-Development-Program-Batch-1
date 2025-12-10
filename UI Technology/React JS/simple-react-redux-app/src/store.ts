@@ -5,5 +5,5 @@ import reducer from './reducer'
 // reducer. 
 let storeRef = createStore(reducer)
 
-
+console.log(storeRef.getState())
 export default storeRef;
