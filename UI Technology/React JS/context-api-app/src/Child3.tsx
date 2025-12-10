@@ -9,7 +9,7 @@ let data = useContext(MyContext);// pull the data from context reference
     return(
         <div>
             <h3>Child3 Component</h3>
-            <p>Name is in child3 component from parent component is {data}</p>
+            <p>Name is in child3 component from parent component is {data.name} and age is {data.age}</p>
             <Child4></Child4>
             <Child5></Child5>
         </div>
