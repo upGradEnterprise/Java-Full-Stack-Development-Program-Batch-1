@@ -1,5 +1,7 @@
+// name is global state variable. 
 let initialState = {
-    name:"Akash Kale"       // name of type string 
+    name:"Akash Kale" ,      // name of type string 
+    counter:100
 }
 
 function reducer(state:any=initialState,action:any): any{
