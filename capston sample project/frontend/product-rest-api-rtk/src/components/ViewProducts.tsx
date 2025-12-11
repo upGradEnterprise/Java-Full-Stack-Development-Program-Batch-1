@@ -7,12 +7,13 @@ let dispatch = useDispatch<any>();
 let products = useSelector((gs:any)=>gs.product.products)
 let loading = useSelector((gs:any)=>gs.product.loading)
 let error = useSelector((gs:any)=>gs.product.error)
+let msg = useSelector((gs:any)=>gs.product.msg);
 useEffect(()=> {
     setTimeout(()=> {
     dispatch(loadProducts())
-    },3000)
+    },500)
 
-},[])
+},[msg])
 
     if(loading) return <h3>Data Loading....</h3>
     if(!loading) return( 

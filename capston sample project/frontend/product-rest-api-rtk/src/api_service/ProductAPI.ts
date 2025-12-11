@@ -10,7 +10,7 @@ export let loadProductFromBackend = async() => {
 
 export let storeProductInBackend = async(product:any) => {
     let result = await axios.post(PRODUCT_URL+"/store",product)
-    console.log(result)
+    //console.log(result)
     console.log(result.data)
     return result.data;
 }
