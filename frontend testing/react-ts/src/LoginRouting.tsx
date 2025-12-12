@@ -1,16 +1,14 @@
 import { useState } from "react"
-//import { useNavigate } from "react-router-dom";
-
-function Login() {
+import { useNavigate } from "react-router-dom";
+function LoginRouting() {
 let [emailId,setEmailId]=useState<any>("")
 let [password,setPassword]=useState<any>("");
 let [msg,setMessage]=useState<any>("")
-//let navigate = useNavigate();
+let navigate = useNavigate();
 let handleSubmit= (event:any)=> {
     event.preventDefault()
     if(emailId=="admin@gmail.com" && password=="123"){
-        setMessage("success")
-        //navigate("home")
+        navigate("home")
     }else {
         setMessage("failure");
     }
@@ -25,15 +23,15 @@ let reset= ()=> {
             <span>{msg}</span>
             <h2>Login Page</h2>
             <form onSubmit={handleSubmit}>
-            <input type="email" name="emailId" value={emailId}
+        <input type="email" name="emailId" value={emailId} data-testid="emailId"
             placeholder="Enter emailId" onChange={(event)=>setEmailId(event.target.value)}/><br/>
-            <input type="password" name="password" value={password} 
+        <input type="password" name="password" value={password} data-testid="password"
             placeholder="Enter password" onChange={(event)=>setPassword(event.target.value)}/><br/>
-            <button type="submit" name="b1">SignIn</button>
-            <button type="button" name="b2">Reset</button>
+        <input type="submit" value="submit" data-testid="submit"/>
+            <input type="button" value="reset"/>
             </form>
         </div>
     )
 }
 
-export default Login;
+export default LoginRouting;
