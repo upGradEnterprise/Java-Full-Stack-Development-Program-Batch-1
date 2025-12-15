@@ -16,6 +16,7 @@ function AddProduct() {
   const [description, setDescription] = useState<string>("");
 
   const handleAddProduct = () => {
+    // converted to product object. 
     const product: ProductPayload = {
       name,
       price,

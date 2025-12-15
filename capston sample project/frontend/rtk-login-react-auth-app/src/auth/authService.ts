@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:8080/api/auth";
+const API = "http://localhost:8080/api/auth";  // end point can call without token 
 
 export const signIn = async (data: any) => {
   const res = await axios.post(`${API}/signin`, data);

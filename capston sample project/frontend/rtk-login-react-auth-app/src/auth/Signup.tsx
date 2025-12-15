@@ -6,22 +6,28 @@ import { NavLink } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("CUSTOMER");
-  const dispatch = useDispatch<any>();
+  const [password, setPassword] = useState("");   // state variable 
+
+  const [role, setRole] = useState("CUSTOMER");   // role customer consider 
+  const dispatch = useDispatch<any>();          // dispatch the action to slice 
   let message = useSelector((gs:any)=>gs.auth.message)
 
+  let signUpLogic = ()=> {
+    dispatch(signUpUser({ email, password, role }))
+    setEmail("")
+    setPassword("")
+  }
   return (
     <div>
       <span style={{"color":"red"}}>{message}</span>
       <h2>Signup</h2>
-      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} /><br/>
-      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} /> <br/>
+      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}  value={email}/><br/>
+      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password}/> <br/>
       <select onChange={(e) => setRole(e.target.value)}>
         <option value="CUSTOMER">Customer</option>
         <option value="ADMIN">Admin</option>
       </select><br/>
-      <button onClick={() => dispatch(signUpUser({ email, password, role }))}>
+      <button onClick={signUpLogic}>
         Sign Up
       </button><br/>
       <NavLink to="/">Login</NavLink>

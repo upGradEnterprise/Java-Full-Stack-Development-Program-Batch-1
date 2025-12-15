@@ -8,7 +8,7 @@ spring:
 app:
   jwt:
     secret: mysupersecurejwtsecretkey9876543210
-    expiration: 180000 # 3 minute (in ms)
+    expiration: 600000 # 3 minute (in ms)
 logging:
   level:
     org:
