@@ -25,6 +25,6 @@ public class AuthController {
     @PostMapping("/signin")
     public Map<String, String> signIn(@RequestBody User user) {
         AuthResponse response = authService.signin(user.getEmail(), user.getPassword());
-        return Map.of("token", response.getToken(),"role", response.getRole());
+        return Map.of("token", response.getToken(),"role", response.getRole());   // Admin or Customer
     }
 }

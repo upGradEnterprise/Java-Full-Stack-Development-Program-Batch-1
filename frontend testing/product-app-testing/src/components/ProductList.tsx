@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProducts, getProductsUsingAxios } from "../services/productService";
 
-const ProductList = () => {
+const ProductList = (props:any) => {
   const [products, setProducts] = useState<any>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -20,7 +20,7 @@ const ProductList = () => {
 
   let loadProduct = async() => {
       try{
-      let result = await  getProductsUsingAxios();
+      let result = await  getProductsUsingAxios(props.url);
       setProducts(result)
       }catch(error){
           setError("Failed to load products")

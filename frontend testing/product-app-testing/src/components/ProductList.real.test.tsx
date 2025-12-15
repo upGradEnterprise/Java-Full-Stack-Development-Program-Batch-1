@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import ProductList from "./ProductList";
 
 test("checks specific product details", async () => {
-  render(<ProductList />);
+  render(<ProductList url="https://fakestoreapi.com/products"/>);
 
   // Wait until products load
   await screen.findByText("20 Products Loaded");

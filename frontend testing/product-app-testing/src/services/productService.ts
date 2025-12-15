@@ -7,7 +7,7 @@ export const getProducts = async () => {
 };
 
 
-export const getProductsUsingAxios = async () => {
-  const res = await axios.get("https://fakestoreapi.com/products");
-  return res.data
+export const getProductsUsingAxios = async (url:any) => {
+  const res = await axios.get(url);
+  return res.data;
 };
