@@ -1,0 +1,9 @@
+npm create vite@latest rtk-login-react-auth-app --template typescript
+cd rtk-login-react-auth-app
+npm install
+
+npm install axios @reduxjs/toolkit react-redux react-router-dom
+
+
+npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom
+

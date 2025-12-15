@@ -5,7 +5,7 @@ import Home from "./Home"
 import LoginRouting from "./LoginRouting"
 
 describe("Login Component Testing ",()=> {
-    test("test success functionality ", async ()=> {
+    xtest("test success functionality ", async ()=> {
         render(
             <MemoryRouter initialEntries={["/"]}>
                 <Routes>

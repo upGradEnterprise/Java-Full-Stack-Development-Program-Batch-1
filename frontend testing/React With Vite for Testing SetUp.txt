@@ -1,0 +1,42 @@
+npm create vite@latest product-app-testing 
+ 
+cd product-app-testing 
+npm install 
+npm install -D @types/jest vitest jsdom @testing-library/react @testing-library/jest-dom 
+
+create the file as 
+
+vite.config.ts
+
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./src/setupTests.ts"
+  }
+});
+
+create a file inside a src directory 
+
+setupTests.ts
+
+import "@testing-library/jest-dom";
+
+
+
+
+
+
+write the code 
+
+and test using command as 
+
+npx vitest
+
+
+
+

@@ -15,13 +15,13 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signup")
-    public Map<String, String> signup(@RequestBody User user) {
+    public Map<String, String> signUp(@RequestBody User user) {
         String message = authService.signup(user);
         return Map.of("message", message);
     }
 
     @PostMapping("/signin")
-    public Map<String, String> signin(@RequestBody User user) {
+    public Map<String, String> signIn(@RequestBody User user) {
         System.out.println("I Came Here");
         String token = authService.signin(user.getEmail(), user.getPassword());
         return Map.of("token", token);
