@@ -2,11 +2,13 @@ npm create vite@latest product-app-testing
  
 cd product-app-testing 
 npm install 
+
 npm install -D @types/jest vitest jsdom @testing-library/react @testing-library/jest-dom 
+npm install axios 
 
 create the file as 
 
-vite.config.ts
+vite.config.ts				outside src folder 
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
