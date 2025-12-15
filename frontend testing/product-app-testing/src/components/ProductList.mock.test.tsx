@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 import * as service from "../services/productService";
 import { vi } from "vitest";
 
-vi.spyOn(service, "getProducts").mockResolvedValue([
+vi.spyOn(service, "getProductsUsingAxios").mockResolvedValue([
 { id: 1, title: "Mock Product", price: 100, category: "test" }
 ]);
 

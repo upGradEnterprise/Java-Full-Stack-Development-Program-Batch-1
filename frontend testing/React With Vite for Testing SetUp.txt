@@ -8,9 +8,9 @@ npm install axios
 
 create the file as 
 
-vite.config.ts				outside src folder 
+vite.config.ts				outside src folder please replace with existing file code with below code  
 
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
@@ -21,6 +21,7 @@ export default defineConfig({
     setupFiles: "./src/setupTests.ts"
   }
 });
+
 
 create a file inside a src directory 
 
