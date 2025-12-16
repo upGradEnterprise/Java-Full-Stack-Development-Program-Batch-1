@@ -1,0 +1,5 @@
+# Created at 2025-12-16T16:02:10.595
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Desktop\Java Full Stack - Virtusa - upGrad\Repository\Java-Full-Stack-Development-Program-Batch-1\Sonar Qube Simple Maven Project\SimpleMavenSonarQubeApp\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

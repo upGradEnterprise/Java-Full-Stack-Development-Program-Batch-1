@@ -27,13 +27,13 @@ public class SecurityConfig {
     private final JwtAuthFilter jwtAuthFilter;
     private final CustomUserDetailsService userDetailsService;
 
-     @Bean
+    @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration config = new CorsConfiguration();
 
         // React origin (Vite or Nginx)
-        config.setAllowedOriginPatterns(List.of("http://localhost*"));
+        config.setAllowedOriginPatterns(List.of("http://localhost*"));      // EC2 instance then we need provide IP Address 
 
         config.setAllowedMethods(List.of(
                 "GET", "POST", "PUT", "DELETE", "OPTIONS"

@@ -1,18 +1,17 @@
 services:
   akash-service:
-    image: akashkale/my-spring-boot:upgrad_1.0
+    image: akashkale/my-react-vite:upgrade1
     ports:
-      - 81:8080
-  ananya-service:
-    image: ananya8722/my-spring-boot:upgrad_1.0
+      - 81:80
+  std1-service:
+    image: sharmavikas4/react-app:latest
     ports:
-      - 82:8080
-  ehshanulla-service:
-    image: ehshanulla/my-spring-boot:1.0
+      - 82:80
+  std2-service:
+    image: himanshukumarjha/my-react-vite:demo1
     ports:
-      - 83:8080
-  lalithagullipalli-service:
-    image: lalithagullipalli/my-spring-boot:upgrad_1.0
+      - 83:80
+  std3-service:
+    image: sujithanune2607/my_react_vite:sujithademo
     ports:
-      - 84:8080 
-  
+     - 84:80
