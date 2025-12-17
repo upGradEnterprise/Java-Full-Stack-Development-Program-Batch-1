@@ -23,4 +23,12 @@ public class SimpleController {
     public String updateProduct(@PathVariable int pid) {
         return simpleService.updateCache(pid);
     }
+    @GetMapping(value = "deleteProduct/{pid}")
+    public String deleteProduct(@PathVariable int pid) {
+        return simpleService.deleteCache(pid);
+    }
+    @GetMapping(value = "clearCache")
+    public String deleteAllProduct() {
+        return simpleService.deleteAll();
+    }
 }

@@ -3,6 +3,7 @@ package com.service;
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.dao.SimpleDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,17 @@ public class SimpleService {
     public String updateCache(int pid){
         System.out.println("Update product id in service layer");
         return simpleDao.updateProductInDb(pid);
+    }
+
+    @CacheEvict(value = "productCache",key = "#pid")
+    public String deleteCache(int pid){
+        System.out.println("Update product id in service layer");
+        return simpleDao.deleteProductInDb(pid);
+    }
+    // delete all cache data
+    @CacheEvict(value = "productCache",allEntries = true)
+    public String deleteAll(){
+        System.out.println("Update product id in service layer");
+        return simpleDao.removeAllProduct();
     }
 }

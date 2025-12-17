@@ -30,4 +30,12 @@ public class SimpleDao {
         return "Updated product in db"+pid;
     }
 
+    public String deleteProductInDb(int pid) {
+        System.out.println("I Came in Db layer for delete "+pid);
+        return "deleted product in db"+pid;
+    }
+
+    public String removeAllProduct() {
+        return "All Data removed from DB";
+    }
 }
